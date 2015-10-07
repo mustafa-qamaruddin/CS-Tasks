@@ -32,9 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Patterns_Recognition___Task_1.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,11 +55,30 @@
     <Compile Include="Form_Task_1.Designer.cs">
       <DependentUpon>Form_Task_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Task_1_b.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Task_1_b.Designer.cs">
+      <DependentUpon>Form_Task_1_b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Task_1_Test_Normal_Distribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Task_1_Test_Normal_Distribution.Designer.cs">
+      <DependentUpon>Form_Task_1_Test_Normal_Distribution.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageFilesHandler.cs" />
+    <Compile Include="NormalDistribution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_Task_1.resx">
       <DependentUpon>Form_Task_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Task_1_b.resx">
+      <DependentUpon>Form_Task_1_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Task_1_Test_Normal_Distribution.resx">
+      <DependentUpon>Form_Task_1_Test_Normal_Distribution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -2,7 +2,10 @@ C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\bin\Debug\Patterns Recognition - Task 1.exe
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\bin\Debug\Patterns Recognition - Task 1.pdb
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Form_Task_1.resources
+C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Form_Task_1_b.resources
+C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Form_Task_1_Test_Normal_Distribution.resources
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Properties.Resources.resources
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns Recognition - Task 1.csproj.GenerateResource.Cache
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns Recognition - Task 1.exe
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns Recognition - Task 1.pdb
+C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns Recognition - Task 1.csprojResolveAssemblyReference.cache

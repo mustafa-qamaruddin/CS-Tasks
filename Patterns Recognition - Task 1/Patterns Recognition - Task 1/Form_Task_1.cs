@@ -22,5 +22,11 @@ namespace Patterns_Recognition___Task_1
             ImageFilesHandler img_files_handler = new ImageFilesHandler();
             img_files_handler.ignite(this, picture_box_pr, text_box_pr_img_src);
         }
+
+        private void button_open_test_normal_distribution_form_Click(object sender, EventArgs e)
+        {
+            Form obj_form_test_normal_distribution = new Form_Task_1_Test_Normal_Distribution();
+            obj_form_test_normal_distribution.Show(this);
+        }
     }
 }
