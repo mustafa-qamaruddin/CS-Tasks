@@ -68,6 +68,7 @@
       <DependentUpon>Form_Task_1_Test_Normal_Distribution.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageFilesHandler.cs" />
+    <Compile Include="ImageRectangles.cs" />
     <Compile Include="NormalDistribution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

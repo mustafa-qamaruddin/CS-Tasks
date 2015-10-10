@@ -28,5 +28,11 @@ namespace Patterns_Recognition___Task_1
             Form obj_form_test_normal_distribution = new Form_Task_1_Test_Normal_Distribution();
             obj_form_test_normal_distribution.Show(this);
         }
+
+        private void button_split_paint_rects_Click(object sender, EventArgs e)
+        {
+            Form obj_form_split_paint_rects = new Form_Task_1_b();
+            obj_form_split_paint_rects.Show();
+        }
     }
 }

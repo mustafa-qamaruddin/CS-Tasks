@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Diagnostics;
 
 namespace Patterns_Recognition___Task_1
 {
@@ -29,21 +30,27 @@ namespace Patterns_Recognition___Task_1
         public double pdf(double x){
             double nominator = Math.Pow(x-meu,2);
             double exponent = -1 * nominator / exponents_denominator;
-            return Math.Round(factor * Math.Pow(Math.E, exponent), 4);
+            double ret = Math.Round(factor * Math.Pow(Math.E, exponent), 4);
+            ret = factor * Math.Pow(Math.E, exponent);
+            Debug.Assert(ret >= 0);
+            Debug.Assert(ret <= 1);
+            return ret;
         }
 
         public int uniform_random_generator(int from, int to)
         {
-            Random r = new Random(Int32.Parse(DateTime.Now.ToString()));
+            int int_seed = new System.DateTime().Millisecond;
+            Random r = new Random(int_seed);
             return r.Next(from, to);
         }
 
         public List<KeyValuePair<double, double>> fill_data()
         {
             List<KeyValuePair<double,double>> data = new List<KeyValuePair<double,double>>();
-            for (double i = meu - span; i <= meu + span; i += 0.2)
+            for (double i = meu - span; i <= meu + span; i += 0.1)
             {
-                data.Add(new KeyValuePair<double, double>(i, pdf(i)));
+                double pdf_i = pdf(i);
+                data.Add(new KeyValuePair<double, double>(i, pdf_i));
             }
             return data;
         }

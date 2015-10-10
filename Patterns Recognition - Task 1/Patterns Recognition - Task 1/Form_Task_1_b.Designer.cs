@@ -92,6 +92,7 @@
             this.dataGridView_Meus_Sigmas.Size = new System.Drawing.Size(344, 513);
             this.dataGridView_Meus_Sigmas.TabIndex = 2;
             this.dataGridView_Meus_Sigmas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Meus_Sigmas_CellContentClick);
+            this.dataGridView_Meus_Sigmas.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_Meus_Sigmas_DefaultValuesNeeded);
             // 
             // RMeu
             // 
@@ -137,6 +138,7 @@
             this.button_render.TabIndex = 3;
             this.button_render.Text = "Render";
             this.button_render.UseVisualStyleBackColor = true;
+            this.button_render.Click += new System.EventHandler(this.button_render_Click);
             // 
             // pictureBox_image
             // 
