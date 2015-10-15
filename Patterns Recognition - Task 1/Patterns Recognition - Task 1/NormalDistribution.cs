@@ -15,6 +15,7 @@ namespace Patterns_Recognition___Task_1
 
         double factor; // 1 / (sigma * sqrt(2 * PI))
         double exponents_denominator; // 2 * sigma ^ 2
+        double squared_root_of_2_pi;
 
         const int span = 4;
 
@@ -25,9 +26,10 @@ namespace Patterns_Recognition___Task_1
             sigma_squared = Math.Pow(sigma, 2);
             factor = 1 / (sigma * Math.Sqrt(2 * Math.PI));
             exponents_denominator = 2 * sigma_squared;
+            squared_root_of_2_pi = Math.Sqrt(2 * Math.PI);
         }
 
-        public double pdf(double x){
+        public double standard_pdf(double x){
             double nominator = Math.Pow(x-meu,2);
             double exponent = -1 * nominator / exponents_denominator;
             double ret = Math.Round(factor * Math.Pow(Math.E, exponent), 4);
@@ -37,10 +39,19 @@ namespace Patterns_Recognition___Task_1
             return ret;
         }
 
+        public double pdf(double x)
+        {
+            double exponent = Math.Pow(x, 2) / -2;
+            double ret =  Math.Pow(Math.E, exponent);
+            ret /= squared_root_of_2_pi;
+            return ret;
+        }
+
         public int uniform_random_generator(int from, int to)
         {
-            int int_seed = new System.DateTime().Millisecond;
-            Random r = new Random(int_seed);
+            //int int_seed = new System.DateTime().Millisecond;
+            //int int_seed = new Guid().GetHashCode();
+            Random r = new Random();
             return r.Next(from, to);
         }
 

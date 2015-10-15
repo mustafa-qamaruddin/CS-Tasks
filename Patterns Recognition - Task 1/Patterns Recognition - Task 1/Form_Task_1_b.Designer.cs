@@ -41,6 +41,7 @@
             this.BSigma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_render = new System.Windows.Forms.Button();
             this.pictureBox_image = new System.Windows.Forms.PictureBox();
+            this.checkBox_pixels = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Meus_Sigmas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image)).BeginInit();
             this.SuspendLayout();
@@ -56,15 +57,15 @@
             // 
             // textBox_width
             // 
-            this.textBox_width.Location = new System.Drawing.Point(50, 521);
+            this.textBox_width.Location = new System.Drawing.Point(46, 521);
             this.textBox_width.Name = "textBox_width";
-            this.textBox_width.Size = new System.Drawing.Size(100, 20);
+            this.textBox_width.Size = new System.Drawing.Size(88, 20);
             this.textBox_width.TabIndex = 1;
             // 
             // label_height
             // 
             this.label_height.AutoSize = true;
-            this.label_height.Location = new System.Drawing.Point(204, 524);
+            this.label_height.Location = new System.Drawing.Point(149, 524);
             this.label_height.Name = "label_height";
             this.label_height.Size = new System.Drawing.Size(38, 13);
             this.label_height.TabIndex = 0;
@@ -72,9 +73,9 @@
             // 
             // textBox_height
             // 
-            this.textBox_height.Location = new System.Drawing.Point(249, 521);
+            this.textBox_height.Location = new System.Drawing.Point(194, 521);
             this.textBox_height.Name = "textBox_height";
-            this.textBox_height.Size = new System.Drawing.Size(100, 20);
+            this.textBox_height.Size = new System.Drawing.Size(83, 20);
             this.textBox_height.TabIndex = 1;
             // 
             // dataGridView_Meus_Sigmas
@@ -148,11 +149,23 @@
             this.pictureBox_image.TabIndex = 4;
             this.pictureBox_image.TabStop = false;
             // 
+            // checkBox_pixels
+            // 
+            this.checkBox_pixels.AutoSize = true;
+            this.checkBox_pixels.Location = new System.Drawing.Point(294, 523);
+            this.checkBox_pixels.Name = "checkBox_pixels";
+            this.checkBox_pixels.Size = new System.Drawing.Size(53, 17);
+            this.checkBox_pixels.TabIndex = 5;
+            this.checkBox_pixels.Text = "Pixels";
+            this.checkBox_pixels.UseVisualStyleBackColor = true;
+            this.checkBox_pixels.CheckedChanged += new System.EventHandler(this.checkBox_pixels_CheckedChanged);
+            // 
             // Form_Task_1_b
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 573);
+            this.Controls.Add(this.checkBox_pixels);
             this.Controls.Add(this.pictureBox_image);
             this.Controls.Add(this.button_render);
             this.Controls.Add(this.dataGridView_Meus_Sigmas);
@@ -184,5 +197,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BSigma;
         private System.Windows.Forms.Button button_render;
         private System.Windows.Forms.PictureBox pictureBox_image;
+        private System.Windows.Forms.CheckBox checkBox_pixels;
     }
 }
