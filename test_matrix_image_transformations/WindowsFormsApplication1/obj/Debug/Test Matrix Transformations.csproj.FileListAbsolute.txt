@@ -1,0 +1,9 @@
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\obj\Debug\Test Matrix Transformations.csprojResolveAssemblyReference.cache
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\obj\Debug\TestMatrixTransformations.Form_test_matrix_transformations.resources
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\obj\Debug\Test Matrix Transformations.csproj.GenerateResource.Cache
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\test_matrix_image_transformations\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
