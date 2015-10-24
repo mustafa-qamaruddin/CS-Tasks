@@ -16,7 +16,7 @@ namespace Patterns_Recognition___Task_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Task_1());
+            Application.Run(new Form_Main());
         }
     }
 }

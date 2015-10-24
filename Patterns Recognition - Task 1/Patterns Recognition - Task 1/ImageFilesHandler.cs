@@ -44,13 +44,14 @@ namespace Patterns_Recognition___Task_1
             text_box.Text = file_path;
         }
 
-        public void ignite(Form parent_form, PictureBox pic_box, TextBox text_box_file_name)
+        public Bitmap ignite(Form parent_form, PictureBox pic_box, TextBox text_box_file_name)
         {
             Stream file_stream = open_file_dialog(parent_form, text_box_file_name);
             if (file_stream == null)
-                return;
+                return null;
             Bitmap bm = load_image_file(file_stream);
             display_image_in_control(bm, pic_box);
+            return bm;
         }
     }
 }

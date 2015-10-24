@@ -11,18 +11,21 @@ namespace Patterns_Recognition___Task_1
     {
         const int base_color = 0,
             max_color = 255;
+
         public Bitmap fill_image_rects(int _width, int _height, DataGridView data_meus_sigmas, bool bool_pixels)
         {
             Bitmap bmp = new Bitmap(_width, _height);
             Graphics graphics = Graphics.FromImage(bmp);
             Pen my_pen = new Pen(new SolidBrush(Color.White));
             int num_rects = data_meus_sigmas.RowCount;
+            if (num_rects == 1 && data_meus_sigmas.Rows[0].Cells[0].Value == null)
+                return null;
             int rect_width = _width / num_rects;
             for (int i = 0; i < num_rects; i++)
             {
                 if (data_meus_sigmas.Rows[i].Cells[0].Value == null)
                     continue;
-                
+
                 if (bool_pixels) // draw pixel by pixel
                 {
                     render_pixels(ref bmp, i, rect_width, _height, data_meus_sigmas.Rows[i]);
@@ -36,10 +39,13 @@ namespace Patterns_Recognition___Task_1
             return bmp;
         }
 
-        public void render_pixels(ref Bitmap obj_bitmap, int x_offset, int rect_width, int _height, DataGridViewRow dgvr) {
+        public void render_pixels(ref Bitmap obj_bitmap, int x_offset, int rect_width, int _height, DataGridViewRow dgvr)
+        {
             Color c;
-            for(int i = x_offset * rect_width; i < x_offset * rect_width + rect_width; i++){
-                for(int j = 0; j < _height; j++){
+            for (int i = x_offset * rect_width; i < x_offset * rect_width + rect_width; i++)
+            {
+                for (int j = 0; j < _height; j++)
+                {
                     c = get_random_color_intensity(dgvr);
                     obj_bitmap.SetPixel(i, j, c);
                 }
@@ -68,9 +74,9 @@ namespace Patterns_Recognition___Task_1
             Mueller_Box_Normal_RGNR rnd = new Mueller_Box_Normal_RGNR(meu, sigma);
             double ret = rnd.generate_normal_random();
             if (ret > max_color)
-                ret = ret % (max_color+1);
+                ret = ret % (max_color + 1);
             if (ret < base_color)
-                ret = Math.Abs(ret%(max_color+1));
+                ret = Math.Abs(ret % (max_color + 1));
             return ret;
         }
     }

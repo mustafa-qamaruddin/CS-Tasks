@@ -30,15 +30,15 @@ namespace Patterns_Recognition___Task_1
         private void dataGridView_Meus_Sigmas_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             // red
-            e.Row.Cells[0].Value = 40;
+            e.Row.Cells[0].Value = 100;
             e.Row.Cells[1].Value = 1.5;
 
             // green
-            e.Row.Cells[2].Value = 800;
+            e.Row.Cells[2].Value = 30;
             e.Row.Cells[3].Value = 0.9;
 
             // blue
-            e.Row.Cells[4].Value = 1200;
+            e.Row.Cells[4].Value = 20;
             e.Row.Cells[5].Value = 1.2;
         }
 
