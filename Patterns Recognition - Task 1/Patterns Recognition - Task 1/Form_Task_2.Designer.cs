@@ -48,15 +48,16 @@
             this.BSigma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage_outputs = new System.Windows.Forms.TabPage();
-            this.pictureBox_greyscale_image = new System.Windows.Forms.PictureBox();
             this.pictureBox_classified = new System.Windows.Forms.PictureBox();
+            this.pictureBox_greyscale_image = new System.Windows.Forms.PictureBox();
+            this.button_automated_fill = new System.Windows.Forms.Button();
             this.tabControl_task_2.SuspendLayout();
             this.tabPage_inputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_input_image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_inputs)).BeginInit();
             this.tabPage_outputs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_classified)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_task_2
@@ -71,6 +72,7 @@
             // 
             // tabPage_inputs
             // 
+            this.tabPage_inputs.Controls.Add(this.button_automated_fill);
             this.tabPage_inputs.Controls.Add(this.textBox_file_path);
             this.tabPage_inputs.Controls.Add(this.button_render);
             this.tabPage_inputs.Controls.Add(this.textBox_height);
@@ -145,6 +147,8 @@
             this.pictureBox_input_image.Size = new System.Drawing.Size(718, 692);
             this.pictureBox_input_image.TabIndex = 3;
             this.pictureBox_input_image.TabStop = false;
+            this.pictureBox_input_image.Click += new System.EventHandler(this.pictureBox_input_image_Click_1);
+            this.pictureBox_input_image.MouseCaptureChanged += new System.EventHandler(this.pictureBox_input_image_Click);
             // 
             // comboBox_input_image_source
             // 
@@ -178,9 +182,9 @@
             this.BMeu,
             this.BSigma,
             this.Prior});
-            this.dataGridView_inputs.Location = new System.Drawing.Point(0, 6);
+            this.dataGridView_inputs.Location = new System.Drawing.Point(0, 30);
             this.dataGridView_inputs.Name = "dataGridView_inputs";
-            this.dataGridView_inputs.Size = new System.Drawing.Size(288, 719);
+            this.dataGridView_inputs.Size = new System.Drawing.Size(288, 695);
             this.dataGridView_inputs.TabIndex = 0;
             this.dataGridView_inputs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_inputs_CellContentClick);
             // 
@@ -238,6 +242,14 @@
             this.tabPage_outputs.Text = "Outputs";
             this.tabPage_outputs.UseVisualStyleBackColor = true;
             // 
+            // pictureBox_classified
+            // 
+            this.pictureBox_classified.Location = new System.Drawing.Point(506, 0);
+            this.pictureBox_classified.Name = "pictureBox_classified";
+            this.pictureBox_classified.Size = new System.Drawing.Size(500, 725);
+            this.pictureBox_classified.TabIndex = 0;
+            this.pictureBox_classified.TabStop = false;
+            // 
             // pictureBox_greyscale_image
             // 
             this.pictureBox_greyscale_image.Location = new System.Drawing.Point(0, 0);
@@ -246,13 +258,15 @@
             this.pictureBox_greyscale_image.TabIndex = 0;
             this.pictureBox_greyscale_image.TabStop = false;
             // 
-            // pictureBox_classified
+            // button_automated_fill
             // 
-            this.pictureBox_classified.Location = new System.Drawing.Point(506, 0);
-            this.pictureBox_classified.Name = "pictureBox_classified";
-            this.pictureBox_classified.Size = new System.Drawing.Size(500, 725);
-            this.pictureBox_classified.TabIndex = 0;
-            this.pictureBox_classified.TabStop = false;
+            this.button_automated_fill.Location = new System.Drawing.Point(0, 3);
+            this.button_automated_fill.Name = "button_automated_fill";
+            this.button_automated_fill.Size = new System.Drawing.Size(288, 23);
+            this.button_automated_fill.TabIndex = 8;
+            this.button_automated_fill.Text = "Automated Testing";
+            this.button_automated_fill.UseVisualStyleBackColor = true;
+            this.button_automated_fill.Click += new System.EventHandler(this.button_automated_fill_Click);
             // 
             // Form_Task_2
             // 
@@ -268,8 +282,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_input_image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_inputs)).EndInit();
             this.tabPage_outputs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_classified)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,5 +312,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Prior;
         private System.Windows.Forms.PictureBox pictureBox_classified;
         private System.Windows.Forms.PictureBox pictureBox_greyscale_image;
+        private System.Windows.Forms.Button button_automated_fill;
     }
 }
