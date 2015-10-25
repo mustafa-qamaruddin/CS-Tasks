@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace Patterns_Recognition___Task_1
 {
@@ -11,6 +12,8 @@ namespace Patterns_Recognition___Task_1
         public double meu, sigma;
         public double meu_red, meu_green, meu_blue;
         public double sigma_red, sigma_green, sigma_blue;
+        public double prior;
+        public Color color;
 
         public ClassRegion()
         {

@@ -19,6 +19,10 @@ namespace Patterns_Recognition___Task_1
 
         const int span = 4;
 
+        public NormalDistribution()
+        {
+        }
+
         public NormalDistribution(double _meu, double _sigma)
         {
             meu = _meu;
@@ -74,6 +78,10 @@ namespace Patterns_Recognition___Task_1
                 obj_chart.Series[0].Points.AddXY(data[i].Key, data[i].Value);
             }
             return;
+        }
+        public double my_normal_function(double x, double meu, double sigma)
+        {
+            return (1 / Math.Sqrt(2 * Math.PI) * sigma) * Math.Pow(Math.E, -1 * Math.Pow(x - meu, 2) / (2 * Math.Pow(sigma, 2)));
         }
     }
 }

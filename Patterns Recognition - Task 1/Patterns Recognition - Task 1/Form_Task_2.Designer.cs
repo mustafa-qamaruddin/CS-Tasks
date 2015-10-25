@@ -30,6 +30,7 @@
         {
             this.tabControl_task_2 = new System.Windows.Forms.TabControl();
             this.tabPage_inputs = new System.Windows.Forms.TabPage();
+            this.button_automated_fill = new System.Windows.Forms.Button();
             this.textBox_file_path = new System.Windows.Forms.TextBox();
             this.button_render = new System.Windows.Forms.Button();
             this.textBox_height = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.tabPage_outputs = new System.Windows.Forms.TabPage();
             this.pictureBox_classified = new System.Windows.Forms.PictureBox();
             this.pictureBox_greyscale_image = new System.Windows.Forms.PictureBox();
-            this.button_automated_fill = new System.Windows.Forms.Button();
             this.tabControl_task_2.SuspendLayout();
             this.tabPage_inputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_input_image)).BeginInit();
@@ -90,6 +90,16 @@
             this.tabPage_inputs.TabIndex = 0;
             this.tabPage_inputs.Text = "Inputs";
             this.tabPage_inputs.UseVisualStyleBackColor = true;
+            // 
+            // button_automated_fill
+            // 
+            this.button_automated_fill.Location = new System.Drawing.Point(0, 3);
+            this.button_automated_fill.Name = "button_automated_fill";
+            this.button_automated_fill.Size = new System.Drawing.Size(288, 23);
+            this.button_automated_fill.TabIndex = 8;
+            this.button_automated_fill.Text = "Automated Testing";
+            this.button_automated_fill.UseVisualStyleBackColor = true;
+            this.button_automated_fill.Click += new System.EventHandler(this.button_automated_fill_Click);
             // 
             // textBox_file_path
             // 
@@ -257,16 +267,7 @@
             this.pictureBox_greyscale_image.Size = new System.Drawing.Size(500, 725);
             this.pictureBox_greyscale_image.TabIndex = 0;
             this.pictureBox_greyscale_image.TabStop = false;
-            // 
-            // button_automated_fill
-            // 
-            this.button_automated_fill.Location = new System.Drawing.Point(0, 3);
-            this.button_automated_fill.Name = "button_automated_fill";
-            this.button_automated_fill.Size = new System.Drawing.Size(288, 23);
-            this.button_automated_fill.TabIndex = 8;
-            this.button_automated_fill.Text = "Automated Testing";
-            this.button_automated_fill.UseVisualStyleBackColor = true;
-            this.button_automated_fill.Click += new System.EventHandler(this.button_automated_fill_Click);
+            this.pictureBox_greyscale_image.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_greyscale_image_MouseClick);
             // 
             // Form_Task_2
             // 

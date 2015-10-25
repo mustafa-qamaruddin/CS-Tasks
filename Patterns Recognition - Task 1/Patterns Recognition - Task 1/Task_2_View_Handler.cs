@@ -9,10 +9,13 @@ namespace Patterns_Recognition___Task_1
 {
     class Task_2_View_Handler
     {
-        const int default_width = 800;
-        const int default_height = 600;
+        const int default_width = 480;
+        const int default_height = 640;
 
         ClassRegion[] array_class_regions;
+        Color[] colors_taken_for_classes;
+
+        Bitmap grey_image;
 
         public void render_button_handler(Form parent_form, ComboBox comboBox_input_image_source, TextBox textBox_file_path, PictureBox pictureBox_input_image, TextBox textBox_width, TextBox textBox_height, DataGridView dataGridView_inputs, PictureBox pictureBox_greyscale_image, PictureBox pictureBox_classified)
         {
@@ -27,9 +30,12 @@ namespace Patterns_Recognition___Task_1
             Bitmap input_bmp = control_switch(parent_form, comboBox_input_image_source, textBox_file_path, pictureBox_input_image, image_width, image_height, dataGridView_inputs);
             textBox_width.Text = pictureBox_input_image.Image.Width.ToString();
             textBox_height.Text = pictureBox_input_image.Image.Height.ToString();
-            Bitmap grey_image = new ImageProcessing().get_grey_scale(input_bmp);
+
+            grey_image = new ImageProcessing().get_grey_scale(input_bmp);
             pictureBox_greyscale_image.Image = grey_image;
+
             propagata_class_regions_array(dataGridView_inputs, int.Parse(textBox_width.Text), int.Parse(textBox_height.Text));
+
             pictureBox_classified.Image = apply_bayesian_inference(grey_image, dataGridView_inputs);
         }
 
@@ -58,7 +64,33 @@ namespace Patterns_Recognition___Task_1
                 array_class_regions[i].sigma_red = Double.Parse(data_meus_sigmas.Rows[i].Cells[1].Value.ToString());
                 array_class_regions[i].sigma_green = Double.Parse(data_meus_sigmas.Rows[i].Cells[3].Value.ToString());
                 array_class_regions[i].sigma_blue = Double.Parse(data_meus_sigmas.Rows[i].Cells[5].Value.ToString());
+                array_class_regions[i].prior = Double.Parse(data_meus_sigmas.Rows[i].Cells[6].Value.ToString());
+                array_class_regions[i].color = get_unique_random_color(num_rects);
             }
+        }
+
+        public Color get_unique_random_color(int num_classes)
+        {
+            if(colors_taken_for_classes == null){
+                colors_taken_for_classes = new Color[num_classes];
+            }
+            Random r = new Random();
+            Color new_color = Color.FromArgb(r.Next(0, int.MaxValue));
+            while (linear_array_find(new_color))
+            {
+                new_color = Color.FromArgb(r.Next(0, int.MaxValue), r.Next(0, int.MaxValue), r.Next(0, int.MaxValue));
+            }
+            return new_color;
+        }
+
+        public bool linear_array_find(Color x)
+        {
+            for (int i = 0; i < colors_taken_for_classes.Length; i++)
+            {
+                if (colors_taken_for_classes[i] == x)
+                    return true;
+            }
+            return false;
         }
 
         public Bitmap control_switch(Form parent_form, ComboBox comboBox_input_image_source, TextBox textBox_file_path, PictureBox pictureBox_input_image, int image_width, int image_height, DataGridView dataGridView_inputs)
@@ -68,6 +100,7 @@ namespace Patterns_Recognition___Task_1
             {
                 case 0:
                     input_bmp = upload_image(parent_form, textBox_file_path, pictureBox_input_image);
+                    dataGridView_inputs.Rows.Clear();
                     break;
                 case 1:
                     input_bmp = generate_image(image_width, image_height, dataGridView_inputs, pictureBox_input_image);
@@ -100,11 +133,22 @@ namespace Patterns_Recognition___Task_1
                     Color original_color = grey_image.GetPixel(x, y);
                     double averaged_color_value = (original_color.R + original_color.G + original_color.B) / 3;
                     int class_index = new BayesianInferenceEngine().classify(array_class_regions, averaged_color_value);
-                    Color new_color = new ImageRectangles().get_random_color_intensity(dgrv_meus_sigmas.Rows[class_index]);
-                    ret.SetPixel(x, y, new_color);
+                    ret.SetPixel(x, y, array_class_regions[class_index].color);
                 }
             }
             return ret;
+        }
+
+        public void fill_gridview_from_mouse_clicks(DataGridView dgrv, int x, int y, PictureBox pictureBox_classified)
+        {
+            if (null == grey_image || x < 0 || x >= grey_image.Width || y < 0 || y >= grey_image.Height)
+                return;
+            Color c = grey_image.GetPixel(x, y);
+            dgrv.Rows.Add(c.R, 0.5, c.G, 0.5, c.B, 0.5, 0.25);
+
+            propagata_class_regions_array(dgrv, grey_image.Width, grey_image.Height);
+            pictureBox_classified.Image = apply_bayesian_inference(grey_image, dgrv);
+
         }
     }
 }
