@@ -13,6 +13,8 @@ namespace Patterns_Recognition___Task_1
         {
             dgrdv.Rows.Clear();
             Stream fstream = open_file_dialog(parent_form);
+            if (fstream == null)
+                return;
             StreamReader sr = new StreamReader(fstream);
             string line = sr.ReadLine();
             while( !String.IsNullOrEmpty(line) ){

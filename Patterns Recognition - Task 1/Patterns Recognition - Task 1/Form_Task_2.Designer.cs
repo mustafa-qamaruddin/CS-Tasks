@@ -51,6 +51,8 @@
             this.tabPage_outputs = new System.Windows.Forms.TabPage();
             this.pictureBox_classified = new System.Windows.Forms.PictureBox();
             this.pictureBox_greyscale_image = new System.Windows.Forms.PictureBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox_test_input = new System.Windows.Forms.PictureBox();
             this.tabControl_task_2.SuspendLayout();
             this.tabPage_inputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_input_image)).BeginInit();
@@ -58,13 +60,16 @@
             this.tabPage_outputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_classified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_test_input)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_task_2
             // 
             this.tabControl_task_2.Controls.Add(this.tabPage_inputs);
             this.tabControl_task_2.Controls.Add(this.tabPage_outputs);
-            this.tabControl_task_2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl_task_2.Controls.Add(this.tabPage1);
+            this.tabControl_task_2.Location = new System.Drawing.Point(21, 12);
             this.tabControl_task_2.Name = "tabControl_task_2";
             this.tabControl_task_2.SelectedIndex = 0;
             this.tabControl_task_2.Size = new System.Drawing.Size(1042, 751);
@@ -157,8 +162,7 @@
             this.pictureBox_input_image.Size = new System.Drawing.Size(718, 692);
             this.pictureBox_input_image.TabIndex = 3;
             this.pictureBox_input_image.TabStop = false;
-            this.pictureBox_input_image.Click += new System.EventHandler(this.pictureBox_input_image_Click_1);
-            this.pictureBox_input_image.MouseCaptureChanged += new System.EventHandler(this.pictureBox_input_image_Click);
+            this.pictureBox_input_image.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_input_image_MouseClick);
             // 
             // comboBox_input_image_source
             // 
@@ -269,11 +273,30 @@
             this.pictureBox_greyscale_image.TabStop = false;
             this.pictureBox_greyscale_image.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_greyscale_image_MouseClick);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pictureBox_test_input);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1034, 725);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox_test_input
+            // 
+            this.pictureBox_test_input.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_test_input.Name = "pictureBox_test_input";
+            this.pictureBox_test_input.Size = new System.Drawing.Size(1000, 623);
+            this.pictureBox_test_input.TabIndex = 0;
+            this.pictureBox_test_input.TabStop = false;
+            // 
             // Form_Task_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 753);
+            this.ClientSize = new System.Drawing.Size(1016, 657);
             this.Controls.Add(this.tabControl_task_2);
             this.Name = "Form_Task_2";
             this.Text = "Task 2";
@@ -285,6 +308,8 @@
             this.tabPage_outputs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_classified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_test_input)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +339,7 @@
         private System.Windows.Forms.PictureBox pictureBox_classified;
         private System.Windows.Forms.PictureBox pictureBox_greyscale_image;
         private System.Windows.Forms.Button button_automated_fill;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.PictureBox pictureBox_test_input;
     }
 }

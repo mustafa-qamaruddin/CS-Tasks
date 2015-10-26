@@ -81,7 +81,7 @@ namespace Patterns_Recognition___Task_1
         }
         public double my_normal_function(double x, double meu, double sigma)
         {
-            return (1 / Math.Sqrt(2 * Math.PI) * sigma) * Math.Pow(Math.E, -1 * Math.Pow(x - meu, 2) / (2 * Math.Pow(sigma, 2)));
+            return (1 / (Math.Sqrt(2 * Math.PI) * sigma)) * Math.Exp(-1 * Math.Pow(x - meu, 2) / (2 * Math.Pow(sigma, 2)));
         }
     }
 }

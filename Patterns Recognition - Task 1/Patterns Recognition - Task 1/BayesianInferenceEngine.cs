@@ -22,10 +22,13 @@ namespace Patterns_Recognition___Task_1
                     continue;
                 meu = classes[i].get_averaged_meu();
                 sigma = classes[i].get_averaged_sigma();
-                double likelihood = composition_object_normal_distribution.my_normal_function(x - meu / sigma, meu, sigma);
+                double likelihood = composition_object_normal_distribution.my_normal_function(x , meu, sigma);
                 double prior = classes[i].prior;
                 if (likelihood * prior > maximum_likelihood)
+                {
                     class_index = i;
+                    maximum_likelihood = likelihood * prior;
+                }
             }
             return class_index;
         }

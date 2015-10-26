@@ -12,12 +12,15 @@ namespace Patterns_Recognition___Task_1
         const int default_width = 480;
         const int default_height = 640;
 
+        const int max_color = 255;
+        const int min_color = 0;
+
         ClassRegion[] array_class_regions;
         Color[] colors_taken_for_classes;
 
         Bitmap grey_image;
 
-        public void render_button_handler(Form parent_form, ComboBox comboBox_input_image_source, TextBox textBox_file_path, PictureBox pictureBox_input_image, TextBox textBox_width, TextBox textBox_height, DataGridView dataGridView_inputs, PictureBox pictureBox_greyscale_image, PictureBox pictureBox_classified)
+        public void render_button_handler(Form parent_form, ComboBox comboBox_input_image_source, TextBox textBox_file_path, PictureBox pictureBox_input_image, TextBox textBox_width, TextBox textBox_height, DataGridView dataGridView_inputs, PictureBox pictureBox_greyscale_image, PictureBox pictureBox_classified, PictureBox picturebox_test)
         {
             int image_width = default_width;
             if (!String.IsNullOrEmpty(textBox_width.Text))
@@ -28,9 +31,13 @@ namespace Patterns_Recognition___Task_1
                 image_height = Int32.Parse(textBox_height.Text);
 
             Bitmap input_bmp = control_switch(parent_form, comboBox_input_image_source, textBox_file_path, pictureBox_input_image, image_width, image_height, dataGridView_inputs);
+            if (input_bmp == null)
+                return;
             textBox_width.Text = pictureBox_input_image.Image.Width.ToString();
             textBox_height.Text = pictureBox_input_image.Image.Height.ToString();
 
+            input_bmp.Save("tmp_input.bmp");
+            picturebox_test.Image = input_bmp;
             grey_image = new ImageProcessing().get_grey_scale(input_bmp);
             pictureBox_greyscale_image.Image = grey_image;
 
@@ -42,6 +49,16 @@ namespace Patterns_Recognition___Task_1
         public void propagata_class_regions_array(DataGridView data_meus_sigmas, int _width, int _height)
         {
             int num_rects = data_meus_sigmas.RowCount;
+            // correct num rects
+            int correct_num_rects = 0;
+            for (int i = 0; i < num_rects; i++)
+            {
+                if (data_meus_sigmas.Rows[i].Cells[0].Value == null)
+                    continue;
+                correct_num_rects++;
+            }
+            num_rects = correct_num_rects;
+            // end correction
             if (num_rects == 1 && data_meus_sigmas.Rows[0].Cells[0].Value == null)
                 return;
             array_class_regions = new ClassRegion[num_rects];
@@ -65,21 +82,22 @@ namespace Patterns_Recognition___Task_1
                 array_class_regions[i].sigma_green = Double.Parse(data_meus_sigmas.Rows[i].Cells[3].Value.ToString());
                 array_class_regions[i].sigma_blue = Double.Parse(data_meus_sigmas.Rows[i].Cells[5].Value.ToString());
                 array_class_regions[i].prior = Double.Parse(data_meus_sigmas.Rows[i].Cells[6].Value.ToString());
-                array_class_regions[i].color = get_unique_random_color(num_rects);
+                array_class_regions[i].color = get_unique_random_color(num_rects, i);
             }
         }
 
-        public Color get_unique_random_color(int num_classes)
+        public Color get_unique_random_color(int num_classes, int index)
         {
             if(colors_taken_for_classes == null){
                 colors_taken_for_classes = new Color[num_classes];
             }
             Random r = new Random();
-            Color new_color = Color.FromArgb(r.Next(0, int.MaxValue));
+            Color new_color = Color.FromArgb(r.Next(min_color, max_color), r.Next(min_color, max_color), r.Next(min_color, max_color));
             while (linear_array_find(new_color))
             {
-                new_color = Color.FromArgb(r.Next(0, int.MaxValue), r.Next(0, int.MaxValue), r.Next(0, int.MaxValue));
+                new_color = Color.FromArgb(r.Next(min_color, max_color), r.Next(min_color, max_color), r.Next(min_color, max_color));
             }
+            colors_taken_for_classes[index] = new_color;
             return new_color;
         }
 
@@ -126,6 +144,8 @@ namespace Patterns_Recognition___Task_1
         public Bitmap apply_bayesian_inference(Bitmap grey_image, DataGridView dgrv_meus_sigmas)
         {
             Bitmap ret = new Bitmap(grey_image.Width, grey_image.Height);
+            if (array_class_regions == null)
+                return ret;
             for (int x = 0; x < grey_image.Width; x++)
             {
                 for (int y = 0; y < grey_image.Height; y++)
@@ -139,16 +159,16 @@ namespace Patterns_Recognition___Task_1
             return ret;
         }
 
-        public void fill_gridview_from_mouse_clicks(DataGridView dgrv, int x, int y, PictureBox pictureBox_classified)
+        public Color fill_gridview_from_mouse_clicks(DataGridView dgrv, int x, int y, PictureBox pictureBox_classified)
         {
             if (null == grey_image || x < 0 || x >= grey_image.Width || y < 0 || y >= grey_image.Height)
-                return;
+                return Color.FromArgb(0);
             Color c = grey_image.GetPixel(x, y);
-            dgrv.Rows.Add(c.R, 0.5, c.G, 0.5, c.B, 0.5, 0.25);
+            dgrv.Rows.Add(c.R, 0.5, c.G, 0.5, c.B, 0.5, 1);
 
             propagata_class_regions_array(dgrv, grey_image.Width, grey_image.Height);
             pictureBox_classified.Image = apply_bayesian_inference(grey_image, dgrv);
-
+            return c;
         }
     }
 }

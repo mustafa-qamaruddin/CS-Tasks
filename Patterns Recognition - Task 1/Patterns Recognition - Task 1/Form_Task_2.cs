@@ -21,7 +21,7 @@ namespace Patterns_Recognition___Task_1
         private void comboBox_input_image_source_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            mvc.render_button_handler(this, (ComboBox)sender, textBox_file_path, pictureBox_input_image, textBox_width, textBox_height, dataGridView_inputs, pictureBox_greyscale_image, pictureBox_classified);
+            mvc.render_button_handler(this, (ComboBox)sender, textBox_file_path, pictureBox_input_image, textBox_width, textBox_height, dataGridView_inputs, pictureBox_greyscale_image, pictureBox_classified, pictureBox_test_input);
             tabControl_task_2.SelectedTab = tabPage_outputs;
             Cursor.Current = Cursors.Default;
         }
@@ -29,7 +29,7 @@ namespace Patterns_Recognition___Task_1
         private void button_render_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            mvc.render_button_handler(this, comboBox_input_image_source, textBox_file_path, pictureBox_input_image, textBox_width, textBox_height, dataGridView_inputs, pictureBox_greyscale_image, pictureBox_classified);
+            mvc.render_button_handler(this, comboBox_input_image_source, textBox_file_path, pictureBox_input_image, textBox_width, textBox_height, dataGridView_inputs, pictureBox_greyscale_image, pictureBox_classified, pictureBox_test_input);
             tabControl_task_2.SelectedTab = tabPage_outputs;
             Cursor.Current = Cursors.Default;
         }
@@ -41,25 +41,12 @@ namespace Patterns_Recognition___Task_1
 
         private void pictureBox_input_image_Click(object sender, EventArgs e)
         {
-            switch (comboBox_input_image_source.SelectedIndex)
-            {
-                case 0:
-                    int x = MousePosition.X - pictureBox_input_image.Left;
-                    int y = MousePosition.Y - pictureBox_input_image.Top;
-                    mvc.fill_gridview_from_mouse_clicks(dataGridView_inputs, x, y, pictureBox_classified);
-                    tabControl_task_2.SelectedTab = tabPage_outputs;
-                    break;
-                case 1:
-                    MessageBox.Show("If you want to use this option, please select file first!");
-                    break;
-                default:
-                    break;
-            };
+            
         }
 
         private void pictureBox_input_image_Click_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button_automated_fill_Click(object sender, EventArgs e)
@@ -69,13 +56,19 @@ namespace Patterns_Recognition___Task_1
 
         private void pictureBox_greyscale_image_MouseClick(object sender, MouseEventArgs e)
         {
+            mouse_clicks_handler(e);
+        }
+
+        public void mouse_clicks_handler(MouseEventArgs e)
+        {
             switch (comboBox_input_image_source.SelectedIndex)
             {
                 case 0:
-                    int x = MousePosition.X - pictureBox_input_image.Left;
-                    int y = MousePosition.Y - pictureBox_input_image.Top;
-                    mvc.fill_gridview_from_mouse_clicks(dataGridView_inputs, x, y, pictureBox_classified);
-                    tabControl_task_2.SelectedTab = tabPage_outputs;
+                    int x = e.X;
+                    int y = e.Y;
+                    Color c = mvc.fill_gridview_from_mouse_clicks(dataGridView_inputs, x, y, pictureBox_classified);
+                    MessageBox.Show(String.Format("Click at Point := ({0}, {1}) \n\n Color (R,G,B) := {2}, {3}, {4}", x, y, c.R, c.G, c.B));
+                    //tabControl_task_2.SelectedTab = tabPage_outputs;
                     break;
                 case 1:
                     MessageBox.Show("If you want to use this option, please select file first!");
@@ -83,6 +76,11 @@ namespace Patterns_Recognition___Task_1
                 default:
                     break;
             };
+        }
+
+        private void pictureBox_input_image_MouseClick(object sender, MouseEventArgs e)
+        {
+            mouse_clicks_handler(e);
         }
     }
 }
