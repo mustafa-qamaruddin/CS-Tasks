@@ -49,6 +49,8 @@ namespace Patterns_Recognition___Task_1
         public void propagata_class_regions_array(DataGridView data_meus_sigmas, int _width, int _height)
         {
             int num_rects = data_meus_sigmas.RowCount;
+            if (num_rects == 1 && data_meus_sigmas.Rows[0].Cells[0].Value == null)
+                return;
             // correct num rects
             int correct_num_rects = 0;
             for (int i = 0; i < num_rects; i++)
@@ -59,8 +61,6 @@ namespace Patterns_Recognition___Task_1
             }
             num_rects = correct_num_rects;
             // end correction
-            if (num_rects == 1 && data_meus_sigmas.Rows[0].Cells[0].Value == null)
-                return;
             array_class_regions = new ClassRegion[num_rects];
             int rect_width = _width / num_rects;
             for (int i = 0; i < num_rects; i++)
@@ -88,7 +88,7 @@ namespace Patterns_Recognition___Task_1
 
         public Color get_unique_random_color(int num_classes, int index)
         {
-            if(colors_taken_for_classes == null){
+            if(colors_taken_for_classes == null || colors_taken_for_classes.Length != num_classes){
                 colors_taken_for_classes = new Color[num_classes];
             }
             Random r = new Random();
