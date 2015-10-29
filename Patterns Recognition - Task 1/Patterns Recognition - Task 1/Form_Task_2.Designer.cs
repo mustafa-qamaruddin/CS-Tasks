@@ -51,7 +51,7 @@
             this.tabPage_outputs = new System.Windows.Forms.TabPage();
             this.pictureBox_classified = new System.Windows.Forms.PictureBox();
             this.pictureBox_greyscale_image = new System.Windows.Forms.PictureBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage_test = new System.Windows.Forms.TabPage();
             this.pictureBox_test_input = new System.Windows.Forms.PictureBox();
             this.tabControl_task_2.SuspendLayout();
             this.tabPage_inputs.SuspendLayout();
@@ -60,7 +60,7 @@
             this.tabPage_outputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_classified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.tabPage_test.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_test_input)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +68,10 @@
             // 
             this.tabControl_task_2.Controls.Add(this.tabPage_inputs);
             this.tabControl_task_2.Controls.Add(this.tabPage_outputs);
-            this.tabControl_task_2.Controls.Add(this.tabPage1);
-            this.tabControl_task_2.Location = new System.Drawing.Point(21, 12);
+            this.tabControl_task_2.Controls.Add(this.tabPage_test);
+            this.tabControl_task_2.Location = new System.Drawing.Point(0, 0);
             this.tabControl_task_2.Name = "tabControl_task_2";
+            this.tabControl_task_2.Padding = new System.Drawing.Point(0, 0);
             this.tabControl_task_2.SelectedIndex = 0;
             this.tabControl_task_2.Size = new System.Drawing.Size(1042, 751);
             this.tabControl_task_2.TabIndex = 0;
@@ -273,16 +274,16 @@
             this.pictureBox_greyscale_image.TabStop = false;
             this.pictureBox_greyscale_image.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_greyscale_image_MouseClick);
             // 
-            // tabPage1
+            // tabPage_test
             // 
-            this.tabPage1.Controls.Add(this.pictureBox_test_input);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1034, 725);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage_test.Controls.Add(this.pictureBox_test_input);
+            this.tabPage_test.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_test.Name = "tabPage_test";
+            this.tabPage_test.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_test.Size = new System.Drawing.Size(1034, 725);
+            this.tabPage_test.TabIndex = 2;
+            this.tabPage_test.Text = "Test";
+            this.tabPage_test.UseVisualStyleBackColor = true;
             // 
             // pictureBox_test_input
             // 
@@ -308,7 +309,7 @@
             this.tabPage_outputs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_classified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_greyscale_image)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.tabPage_test.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_test_input)).EndInit();
             this.ResumeLayout(false);
 
@@ -339,7 +340,7 @@
         private System.Windows.Forms.PictureBox pictureBox_classified;
         private System.Windows.Forms.PictureBox pictureBox_greyscale_image;
         private System.Windows.Forms.Button button_automated_fill;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage_test;
         private System.Windows.Forms.PictureBox pictureBox_test_input;
     }
 }

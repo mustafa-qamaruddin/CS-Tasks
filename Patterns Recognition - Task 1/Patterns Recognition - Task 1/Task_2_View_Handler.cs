@@ -15,7 +15,7 @@ namespace Patterns_Recognition___Task_1
         const int max_color = 255;
         const int min_color = 0;
 
-        ClassRegion[] array_class_regions;
+        StateOfNature[] array_class_regions;
         Color[] colors_taken_for_classes;
 
         Bitmap grey_image;
@@ -61,14 +61,14 @@ namespace Patterns_Recognition___Task_1
             }
             num_rects = correct_num_rects;
             // end correction
-            array_class_regions = new ClassRegion[num_rects];
+            array_class_regions = new StateOfNature[num_rects];
             int rect_width = _width / num_rects;
             for (int i = 0; i < num_rects; i++)
             {
                 if (data_meus_sigmas.Rows[i].Cells[0].Value == null)
                     continue;
 
-                array_class_regions[i] = new ClassRegion();
+                array_class_regions[i] = new StateOfNature();
                 array_class_regions[i].width = rect_width;
                 array_class_regions[i].height = _height;
                 array_class_regions[i].x1 = i * rect_width;

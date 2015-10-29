@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BayesianInferenceEngine.cs" />
-    <Compile Include="ClassRegion.cs" />
+    <Compile Include="StateOfNature.cs" />
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +81,12 @@
     <Compile Include="Form_Task_2.Designer.cs">
       <DependentUpon>Form_Task_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Task_3_a.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Task_3_a.Designer.cs">
+      <DependentUpon>Form_Task_3_a.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageFilesHandler.cs" />
     <Compile Include="ImageProcessing.cs" />
     <Compile Include="ImageRectangles.cs" />
@@ -90,6 +96,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadTestCasesFromFile.cs" />
     <Compile Include="Task_2_View_Handler.cs" />
+    <Compile Include="Task_3_View_Handler.cs" />
     <Compile Include="Test_Box_Mueller_RGNR.cs" />
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
@@ -105,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Task_2.resx">
       <DependentUpon>Form_Task_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Task_3_a.resx">
+      <DependentUpon>Form_Task_3_a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

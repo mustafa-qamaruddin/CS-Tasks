@@ -9,7 +9,7 @@ namespace Patterns_Recognition___Task_1
     {
         public NormalDistribution composition_object_normal_distribution;
 
-        public int classify(ClassRegion[] classes, double x){
+        public int classify(StateOfNature[] classes, double x){
             if (classes == null)
                 return -1;
             double meu, sigma;
