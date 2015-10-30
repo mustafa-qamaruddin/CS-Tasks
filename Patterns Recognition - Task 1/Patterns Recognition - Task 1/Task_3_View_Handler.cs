@@ -13,12 +13,14 @@ namespace Patterns_Recognition___Task_1
         public double[] samples, classes_meus_sigmas;
         public List<StateOfNature> class_regions_array;
         const int column_width = 30;
+        Unique_Random_Color obj_unique_random_colors_array;
 
         public Task_3_View_Handler()
         {
             class_regions_array = new List<StateOfNature>();
             samples = new double[1];
             classes_meus_sigmas = new double[1];
+            obj_unique_random_colors_array = new Unique_Random_Color();
         }
 
         public void handle_load_image_click(Form parent_form, TextBox text_box_file_path, PictureBox pictureBox_input_image, DataGridView dgrdview_samples, DataGridView dgrview_meu_sigma)
@@ -56,19 +58,47 @@ namespace Patterns_Recognition___Task_1
             }
             state_of_nature.calculate_meus_and_sigmas_from_samples();
             dgrview_meu_sigma.Rows.Add(state_of_nature.meu_red, state_of_nature.sigma_red, state_of_nature.meu_green, state_of_nature.sigma_green, state_of_nature.meu_blue, state_of_nature.sigma_blue);
+            state_of_nature.color = obj_unique_random_colors_array.get_unique_random_color();
             class_regions_array.Add(state_of_nature);
+            // add a column for the new class wi in lambda matrix
             DataGridViewColumn dgrdview_col = new DataGridViewColumn();
             dgrdview_col.Width = column_width;
             dgrdview_col.Name = "w_" + class_regions_array.Count;
             dgrdview_col.HeaderText = "w" + class_regions_array.Count;
             dgrdview_col.CellTemplate = dgrdview_samples.Rows[0].Cells[0];
             dgrdview_loss_function.Columns.Add(dgrdview_col);
+            // clear samples table
             dgrdview_samples.Rows.Clear();
         }
 
-        public void handle_render_image_click(PictureBox classified_image)
+        public Bitmap handle_render_image_click(DataGridView dgrdview_loss_function)
         {
-
+            double[,] lambda = new double[dgrdview_loss_function.Rows.Count, class_regions_array.Count];
+            for (int i = 0; i < dgrdview_loss_function.Rows.Count; i++) // loop actions
+            {
+                for (int j = 0; j < class_regions_array.Count; j++) // loop states of nature (categories)
+                {
+                    if (dgrdview_loss_function.Rows[i].Cells[j + 1].Value != null)
+                        lambda[i, j] = double.Parse(dgrdview_loss_function.Rows[i].Cells[j + 1].Value.ToString());
+                }
+            }
+            Bitmap ret = new Bitmap(input_image.Width, input_image.Height);
+            if (class_regions_array == null)
+                return ret;
+            for (int x = 0; x < input_image.Width; x++)
+            {
+                for (int y = 0; y < input_image.Height; y++)
+                {
+                    Color original_color = input_image.GetPixel(x, y);
+                    int[] observed_features_vector_x = new int[] { original_color.R, original_color.G, original_color.B };
+                    int class_index = new BayesianInferenceEngine().classify(class_regions_array, observed_features_vector_x, lambda);
+                    if (class_index == -1)
+                        ret.SetPixel(x, y, Color.Black);
+                    else
+                        ret.SetPixel(x, y, class_regions_array[class_index].color);
+                }
+            }
+            return ret;
         }
     }
 }

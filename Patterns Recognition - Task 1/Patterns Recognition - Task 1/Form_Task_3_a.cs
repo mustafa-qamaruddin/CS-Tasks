@@ -36,7 +36,7 @@ namespace Patterns_Recognition___Task_1
 
         private void button_render_Click(object sender, EventArgs e)
         {
-
+            pictureBox_output.Image = obj_view_handler.handle_render_image_click(dataGridView_loss_function);
         }
     }
 }

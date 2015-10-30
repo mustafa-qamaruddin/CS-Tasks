@@ -33,6 +33,7 @@ namespace Patterns_Recognition___Task_1
             sigma_red = 0;
             sigma_green = 0;
             sigma_blue = 0;
+            prior = 1; // @todo priors = 1 / num of states of nature
             samples = new List<Color>();
         }
 
@@ -86,9 +87,19 @@ namespace Patterns_Recognition___Task_1
                 sigma_green += Math.Pow(samples[i].G - meu_green, 2);
                 sigma_blue += Math.Pow(samples[i].B - meu_blue, 2);
             }
-            sigma_red = Math.Sqrt(sigma_red / (samples.Count - 1));
-            sigma_green = Math.Sqrt(sigma_green / (samples.Count - 1));
-            sigma_blue = Math.Sqrt(sigma_blue / (samples.Count - 1));
+            sigma_red = Math.Sqrt(sigma_red / (samples.Count /*- 1*/));
+            sigma_green = Math.Sqrt(sigma_green / (samples.Count /*- 1*/));
+            sigma_blue = Math.Sqrt(sigma_blue / (samples.Count /*- 1*/));
+        }
+
+        public double[] get_meus_vector()
+        {
+            return new double[] { meu_red, meu_green, meu_blue };
+        }
+
+        public double[] get_sigmas_vector()
+        {
+            return new double[] { sigma_red, sigma_green, sigma_blue };
         }
     }
 }

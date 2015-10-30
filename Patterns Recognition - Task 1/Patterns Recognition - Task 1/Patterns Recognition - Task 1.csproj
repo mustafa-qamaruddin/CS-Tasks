@@ -98,6 +98,7 @@
     <Compile Include="Task_2_View_Handler.cs" />
     <Compile Include="Task_3_View_Handler.cs" />
     <Compile Include="Test_Box_Mueller_RGNR.cs" />
+    <Compile Include="Unique_Random_Color.cs" />
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
