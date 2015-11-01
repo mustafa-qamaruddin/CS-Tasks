@@ -39,5 +39,12 @@ namespace Patterns_Recognition___Task_1
             target_window.Show();
             target_window.WindowState = FormWindowState.Maximized;
         }
+
+        private void button_task_3_b_Click(object sender, EventArgs e)
+        {
+            Form target_window = new Form_Task_3_b();
+            target_window.Show();
+            target_window.WindowState = FormWindowState.Maximized;
+        }
     }
 }

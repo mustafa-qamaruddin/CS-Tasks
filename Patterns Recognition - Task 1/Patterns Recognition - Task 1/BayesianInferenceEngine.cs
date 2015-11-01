@@ -64,6 +64,11 @@ namespace Patterns_Recognition___Task_1
             return class_index;
         }
 
+        public bool is_classification_correct(StateOfNature[] states_of_natures, int i, int j)
+        {
+            return false;
+        }
+
         public double calculate_posteriori(StateOfNature state_of_nature, int[] observed_features_x_vector)
         {
             double posteriori = 1;

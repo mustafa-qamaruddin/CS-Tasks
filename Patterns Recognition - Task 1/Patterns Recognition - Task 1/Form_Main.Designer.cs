@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_task_2 = new System.Windows.Forms.Button();
             this.button_task_3_a = new System.Windows.Forms.Button();
+            this.button_task_3_b = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_task_1
@@ -75,12 +76,23 @@
             this.button_task_3_a.UseVisualStyleBackColor = true;
             this.button_task_3_a.Click += new System.EventHandler(this.button_task_3_a_Click);
             // 
+            // button_task_3_b
+            // 
+            this.button_task_3_b.Location = new System.Drawing.Point(179, 156);
+            this.button_task_3_b.Name = "button_task_3_b";
+            this.button_task_3_b.Size = new System.Drawing.Size(278, 23);
+            this.button_task_3_b.TabIndex = 0;
+            this.button_task_3_b.Text = "Task 3 (b)";
+            this.button_task_3_b.UseVisualStyleBackColor = true;
+            this.button_task_3_b.Click += new System.EventHandler(this.button_task_3_b_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.button_task_3_b);
             this.Controls.Add(this.button_task_3_a);
             this.Controls.Add(this.button_task_2);
             this.Controls.Add(this.button_task_1);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_task_2;
         private System.Windows.Forms.Button button_task_3_a;
+        private System.Windows.Forms.Button button_task_3_b;
     }
 }

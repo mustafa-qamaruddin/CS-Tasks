@@ -50,6 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BayesianInferenceEngine.cs" />
+    <Compile Include="DataGridView_Helpers.cs" />
+    <Compile Include="Form_Task_3_b.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Task_3_b.Designer.cs">
+      <DependentUpon>Form_Task_3_b.cs</DependentUpon>
+    </Compile>
     <Compile Include="StateOfNature.cs" />
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
@@ -116,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Task_3_a.resx">
       <DependentUpon>Form_Task_3_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Task_3_b.resx">
+      <DependentUpon>Form_Task_3_b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -21,7 +21,7 @@ namespace Patterns_Recognition___Task_1
 
         private void button_load_image_file_Click(object sender, EventArgs e)
         {
-            obj_view_handler.handle_load_image_click(this, textBox_file_path, pictureBox_input, dataGridView_samples, dataGridView_meu_sigma);
+            obj_view_handler.handle_load_image_click(this, textBox_file_path, pictureBox_input, dataGridView_samples, dataGridView_meu_sigma, dataGridView_loss_function);
         }
 
         private void pictureBox_input_MouseClick(object sender, MouseEventArgs e)
