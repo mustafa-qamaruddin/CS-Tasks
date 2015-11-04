@@ -147,6 +147,17 @@ namespace Patterns_Recognition___Task_1
             display_confusion_matrix(parent_form, dgrdview_meus_sigmas);
         }
 
+        public double calculate_overall_accuracy()
+        {
+            double over_all_accuracy = 0;
+            for (int i = 0; i < class_regions_array.Count; i++)
+            {
+                over_all_accuracy += confusion_matrix[i, i];
+            }
+            over_all_accuracy /= (input_image.Width * input_image.Height);
+            return over_all_accuracy;
+        }
+
         public void display_confusion_matrix(Form parent_form, DataGridView dgrdv)
         {
             Form child_form = new Form();
@@ -179,6 +190,7 @@ namespace Patterns_Recognition___Task_1
             child_form.Controls.Add(dgrdv_confusion);
             child_form.Owner = parent_form;
             child_form.Show();
+            MessageBox.Show(String.Format("Overall Accuracy ={0}", calculate_overall_accuracy()));
         }
 
         public void propagate_states_of_nature(DataGridView data_meus_sigmas, int _width, int _height)

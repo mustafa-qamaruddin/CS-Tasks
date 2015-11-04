@@ -1,0 +1,5 @@
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\Networks Lab Server\Networks Lab Client\bin\Debug\Networks Lab Client.exe.config
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\Networks Lab Server\Networks Lab Client\bin\Debug\Networks Lab Client.exe
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\Networks Lab Server\Networks Lab Client\bin\Debug\Networks Lab Client.pdb
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\Networks Lab Server\Networks Lab Client\obj\Debug\Networks Lab Client.exe
+c:\users\qamar-ud-din\documents\visual studio 2012\Projects\Networks Lab Server\Networks Lab Client\obj\Debug\Networks Lab Client.pdb
