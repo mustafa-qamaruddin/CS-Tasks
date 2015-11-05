@@ -82,5 +82,26 @@ namespace Patterns_Recognition___Task_1
             }
             return posteriori;
         }
+
+        public double calculate_discrimenet_function(Generic_State_Of_Nature object_state_of_nature, double[] vector_observed_features_values)
+        {
+            return 0;
+        }
+
+        public int classify_using_discriminent_function(Generic_State_Of_Nature[] array_generic_state_nature, double[] vector_observed_features_values)
+        {
+            double maximum_discriminent_value = double.PositiveInfinity;
+            int class_index = -1;
+            for (int i = 0; i < array_generic_state_nature.Length; i++)
+            {
+                double discriminent_value = calculate_discrimenet_function(array_generic_state_nature[i], vector_observed_features_values);
+                if (discriminent_value > maximum_discriminent_value)
+                {
+                    maximum_discriminent_value = discriminent_value;
+                    class_index = i;
+                }
+            }
+            return class_index;
+        }
     }
 }

@@ -57,6 +57,17 @@
     <Compile Include="Form_Task_3_b.Designer.cs">
       <DependentUpon>Form_Task_3_b.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Task_4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Task_4.Designer.cs">
+      <DependentUpon>Form_Task_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenericDataSet.cs" />
+    <Compile Include="Generic_State_Of_Nature.cs" />
+    <Compile Include="IrisDataset.cs" />
+    <Compile Include="Matrix_Operations.cs" />
+    <Compile Include="Sample.cs" />
     <Compile Include="StateOfNature.cs" />
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
@@ -104,6 +115,7 @@
     <Compile Include="ReadTestCasesFromFile.cs" />
     <Compile Include="Task_2_View_Handler.cs" />
     <Compile Include="Task_3_View_Handler.cs" />
+    <Compile Include="Task_4_View_Handler.cs" />
     <Compile Include="Test_Box_Mueller_RGNR.cs" />
     <Compile Include="Unique_Random_Color.cs" />
     <EmbeddedResource Include="Form_Main.resx">
@@ -126,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Task_3_b.resx">
       <DependentUpon>Form_Task_3_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Task_4.resx">
+      <DependentUpon>Form_Task_4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

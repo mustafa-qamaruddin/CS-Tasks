@@ -11,6 +11,10 @@ namespace Patterns_Recognition___Task_1
     {
         DataGridView_Helpers obj_dgrdview_helpers;
 
+        public ReadTestCasesFromFile()
+        {
+        }
+
         public ReadTestCasesFromFile(Form parent_form, DataGridView dgrdv)
         {
             dgrdv.Rows.Clear();
@@ -79,7 +83,7 @@ namespace Patterns_Recognition___Task_1
             }
         }
 
-        public Stream open_file_dialog(Form parent_form)
+        public Stream open_file_dialog(Form parent_form, TextBox file_path_text_box = null)
         {
             OpenFileDialog file_dialog = new OpenFileDialog();
             file_dialog.Filter = "Text Files (*.txt)|*.txt|(*.dat)|*.dat";
@@ -87,6 +91,8 @@ namespace Patterns_Recognition___Task_1
             DialogResult clicked_result = file_dialog.ShowDialog(parent_form);
             if (clicked_result == DialogResult.OK)
             {
+                if (file_path_text_box != null)
+                    file_path_text_box.Text = file_dialog.FileName;
                 return file_dialog.OpenFile();
             }
             else
