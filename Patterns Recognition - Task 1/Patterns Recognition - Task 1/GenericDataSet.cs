@@ -55,12 +55,13 @@ namespace Patterns_Recognition___Task_1
 
         public void read_data_set_from_file_stream(Stream _data_set_file_stream, char _file_delimeter)
         {
+            _data_set_file_stream.Seek(0, SeekOrigin.Begin);
             StreamReader obj_sr = new StreamReader(_data_set_file_stream);
             
             string line = obj_sr.ReadLine();
             int current_index = 0;
             int category_index = 0;
-            while (!obj_sr.EndOfStream)
+            while (!string.IsNullOrEmpty(line))
             {
                 string[] array_tokens = line.Split(_file_delimeter);
                 if (string.IsNullOrEmpty(array_of_states_natures[category_index].label))
@@ -81,7 +82,8 @@ namespace Patterns_Recognition___Task_1
                     array_of_states_natures[category_index].test_samples[current_index - number_of_training_samples_per_state_of_nature] = new Sample(number_of_features, features_values);
                     current_index++;
                 }
-                else
+
+                if( current_index == number_of_samples_per_state_of_nature)
                 {
                     current_index = 0;
                     category_index++;
