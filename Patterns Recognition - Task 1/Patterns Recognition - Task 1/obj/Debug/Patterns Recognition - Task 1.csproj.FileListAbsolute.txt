@@ -14,3 +14,5 @@ C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Form_Task_3_a.resources
 C:\Users\Qamar-ud-Din\documents\visual studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Form_Task_3_b.resources
 C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\obj\Debug\Patterns_Recognition___Task_1.Form_Task_4.resources
+C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\bin\Debug\MathNet.Numerics.dll
+C:\Users\Qamar-ud-Din\Documents\Visual Studio 2012\Projects\Patterns Recognition - Task 1\Patterns Recognition - Task 1\bin\Debug\MathNet.Numerics.xml

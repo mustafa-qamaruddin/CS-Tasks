@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/**
+ * Math DOT NET Numerics
+ * PM> Install-Package MathNet.Numerics
+ **/
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
+
 namespace Patterns_Recognition___Task_1
 {
     class Generic_State_Of_Nature
@@ -16,7 +23,7 @@ namespace Patterns_Recognition___Task_1
 
         public string label;
 
-        public double[] meus_vector;
+        public double[,] meus_vector;
         public double[] sigma_vector;
         public double[,] covariance_matrix;
 
@@ -24,7 +31,10 @@ namespace Patterns_Recognition___Task_1
         public double[,] inverse_covariance_matrix;
         public double[,] transpose_covariance_matrix;
 
-        double priori;
+        public double priori;
+
+        public Matrix<double> Vector_Meu, Vector_Meu_Transpose;
+        public Matrix<double> Matrix_Sigma, Matrix_Sigma_Transpose, Matrix_Sigma_Inverse;
 
         public Generic_State_Of_Nature(int _num_of_features, int _num_training_samples, int _num_of_test_samples, double _priori)
         {
@@ -39,9 +49,9 @@ namespace Patterns_Recognition___Task_1
             test_samples = new Sample[_num_of_test_samples];
         }
 
-        public double[] calculate_meus_vector_from_samples()
+        public double[,] calculate_meus_vector_from_samples()
         {
-            meus_vector = new double[num_of_features];
+            meus_vector = new double[num_of_features,1];
             double[] sums = new double[num_of_features];
             for (int j = 0; j < num_of_features; j++)
             {
@@ -51,13 +61,18 @@ namespace Patterns_Recognition___Task_1
             {
                 for (int j = 0; j < num_of_features; j++)
                 {
-                    sums[j] += training_samples[i].features_values[j];
+                    sums[j] += training_samples[i].features_values[j,0];
                 }
             }
             for (int j = 0; j < num_of_features; j++)
             {
-                meus_vector[j] = sums[j] / num_of_training_samples;
+                meus_vector[j,0] = sums[j] / num_of_training_samples;
             }
+            /**
+             * Use MathDotNET Numerics
+             **/
+            this.Vector_Meu = Matrix<double>.Build.DenseOfArray(meus_vector);
+            this.Vector_Meu_Transpose = this.Vector_Meu.Transpose();
             return meus_vector;
         }
 
@@ -77,11 +92,18 @@ namespace Patterns_Recognition___Task_1
                     covariance_matrix[i, j] = 0;
                     for (int k = 0; k < num_of_training_samples; k++)
                     {
-                        covariance_matrix[i, j] += (training_samples[k].features_values[i] - meus_vector[i]) * (training_samples[k].features_values[j] - meus_vector[j]);
+                        covariance_matrix[i, j] += (training_samples[k].features_values[i,0] - meus_vector[i,0]) * (training_samples[k].features_values[j,0] - meus_vector[j,0]);
                     }
                     covariance_matrix[i, j] = covariance_matrix[i, j] / num_of_training_samples;
                 }
             }
+            /**
+             * Use MathDotNET Numerics
+             **/
+            Matrix_Sigma = Matrix<double>.Build.DenseOfArray(covariance_matrix);
+            Matrix_Sigma_Transpose = Matrix_Sigma.Transpose();
+            Matrix_Sigma_Inverse = Matrix_Sigma.Inverse();
+
             return covariance_matrix;
         }
     }

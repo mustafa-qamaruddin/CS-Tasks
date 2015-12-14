@@ -66,10 +66,10 @@ namespace Patterns_Recognition___Task_1
                 string[] array_tokens = line.Split(_file_delimeter);
                 if (string.IsNullOrEmpty(array_of_states_natures[category_index].label))
                     array_of_states_natures[category_index].label = array_tokens[number_of_features];
-                double[] features_values = new double[number_of_features];
+                double[,] features_values = new double[number_of_features,1];
                 for (int i = 0; i < number_of_features; i++)
                 {
-                    features_values[i] = double.Parse(array_tokens[i]);
+                    features_values[i,0] = double.Parse(array_tokens[i]);
                 }
 
                 if (current_index < number_of_training_samples_per_state_of_nature)

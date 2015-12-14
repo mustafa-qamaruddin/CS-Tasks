@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/**
+ * Math DOT NET Numerics
+ * PM> Install-Package MathNet.Numerics
+ **/
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
+
 namespace Patterns_Recognition___Task_1
 {
     class BayesianInferenceEngine
@@ -83,12 +90,22 @@ namespace Patterns_Recognition___Task_1
             return posteriori;
         }
 
-        public double calculate_discrimenet_function(Generic_State_Of_Nature object_state_of_nature, double[] vector_observed_features_values)
+        public double calculate_discrimenet_function(Generic_State_Of_Nature object_state_of_nature, double[,] vector_observed_features_values)
         {
-            return 0;
+            double gi_x = 0;
+            Matrix<double> X = Matrix.Build.DenseOfArray(vector_observed_features_values);
+            /**
+             * todo move this code to training step
+             **/
+            Matrix<double> Wi = (-1 / 2) * object_state_of_nature.Matrix_Sigma_Inverse;
+            Matrix<double> wi = object_state_of_nature.Matrix_Sigma_Inverse * object_state_of_nature.Vector_Meu;
+            Matrix<double> omegai_0 = (-1 / 2) * object_state_of_nature.Vector_Meu_Transpose * object_state_of_nature.Matrix_Sigma_Inverse * object_state_of_nature.Vector_Meu - (1 / 2) * Math.Log(object_state_of_nature.Matrix_Sigma.Determinant(),Math.E) + Math.Log(object_state_of_nature.priori, Math.E);
+            Matrix<double> ret = X.Transpose() * Wi * X + wi.Transpose() * X + omegai_0;
+            gi_x = ret.Determinant();
+            return gi_x;
         }
 
-        public int classify_using_discriminent_function(Generic_State_Of_Nature[] array_generic_state_nature, double[] vector_observed_features_values)
+        public int classify_using_discriminent_function(Generic_State_Of_Nature[] array_generic_state_nature, double[,] vector_observed_features_values)
         {
             double maximum_discriminent_value = double.PositiveInfinity;
             int class_index = -1;
