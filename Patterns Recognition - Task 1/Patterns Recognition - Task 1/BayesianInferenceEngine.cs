@@ -99,7 +99,10 @@ namespace Patterns_Recognition___Task_1
              **/
             Matrix<double> Wi = (-1 / 2) * object_state_of_nature.Matrix_Sigma_Inverse;
             Matrix<double> wi = object_state_of_nature.Matrix_Sigma_Inverse * object_state_of_nature.Vector_Meu;
-            Matrix<double> omegai_0 = (-1 / 2) * object_state_of_nature.Vector_Meu_Transpose * object_state_of_nature.Matrix_Sigma_Inverse * object_state_of_nature.Vector_Meu - (1 / 2) * Math.Log(object_state_of_nature.Matrix_Sigma.Determinant(),Math.E) + Math.Log(object_state_of_nature.priori, Math.E);
+            Matrix<double> omegai_0_a = (-1 / 2) * object_state_of_nature.Vector_Meu_Transpose * object_state_of_nature.Matrix_Sigma_Inverse * object_state_of_nature.Vector_Meu;
+            double omegai_0_b = (-1 / 2) * Math.Log(object_state_of_nature.Matrix_Sigma.Determinant(), Math.E);
+            double omegai_0_c = Math.Log(object_state_of_nature.priori, Math.E);
+            Matrix<double> omegai_0 = omegai_0_a + omegai_0_b + omegai_0_c;
             Matrix<double> ret = X.Transpose() * Wi * X + wi.Transpose() * X + omegai_0;
             gi_x = ret.Determinant();
             return gi_x;
@@ -107,7 +110,7 @@ namespace Patterns_Recognition___Task_1
 
         public int classify_using_discriminent_function(Generic_State_Of_Nature[] array_generic_state_nature, double[,] vector_observed_features_values)
         {
-            double maximum_discriminent_value = double.PositiveInfinity;
+            double maximum_discriminent_value = double.NegativeInfinity;
             int class_index = -1;
             for (int i = 0; i < array_generic_state_nature.Length; i++)
             {

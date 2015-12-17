@@ -89,6 +89,9 @@ namespace Patterns_Recognition___Task_1
             {
                 for (int j = 0; j < num_of_features; j++)
                 {
+                    /**
+                     * sigma[i, j]2 = summation[(x[i]-meu[i])*(x[j]-meu[j])] / n
+                     **/
                     covariance_matrix[i, j] = 0;
                     for (int k = 0; k < num_of_training_samples; k++)
                     {

@@ -31,7 +31,7 @@ namespace Patterns_Recognition___Task_1
             number_of_training_samples_per_state_of_nature = _number_of_training_samples_per_state_of_nature;
             number_of_test_samples_per_state_of_nature = _number_of_test_samples_per_state_of_nature;
 
-            double priori = 1 / number_of_states_of_nature; // @note: equal priori results in uniform decision boundary mainly determined by the posteriori
+            double priori = 1 / (double)number_of_states_of_nature; // @note: equal priori results in uniform decision boundary mainly determined by the posteriori
 
             array_of_states_natures = new Generic_State_Of_Nature[number_of_states_of_nature];
             for (int i = 0; i < number_of_states_of_nature; i++)

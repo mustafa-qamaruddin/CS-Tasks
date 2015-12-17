@@ -52,8 +52,7 @@ namespace Patterns_Recognition___Task_1
                 for (int j = 0; j < number_of_test_samples_per_state_of_nature; j++)
                 {
                     int class_index = new BayesianInferenceEngine().classify_using_discriminent_function(array_states_of_nature, array_states_of_nature[i].test_samples[j].features_values);
-                    // confusion_matrix[class_index, i]++;
-                    confusion_matrix[i, i]++;
+                    confusion_matrix[class_index, i]++;
                 }
             }
             overall_accuracy = 0;
