@@ -92,18 +92,19 @@ namespace Patterns_Recognition___Task_1
                     /**
                      * sigma[i, j]2 = summation[(x[i]-meu[i])*(x[j]-meu[j])] / n
                      **/
-                    covariance_matrix[i, j] = 0;
+                    covariance_matrix[j, i] = 0; // note j, i  because the matrix is in column-major-order
                     for (int k = 0; k < num_of_training_samples; k++)
                     {
-                        covariance_matrix[i, j] += (training_samples[k].features_values[i,0] - meus_vector[i,0]) * (training_samples[k].features_values[j,0] - meus_vector[j,0]);
+                        covariance_matrix[j, i] += (training_samples[k].features_values[i,0] - meus_vector[i,0]) * (training_samples[k].features_values[j,0] - meus_vector[j,0]);
                     }
-                    covariance_matrix[i, j] = covariance_matrix[i, j] / num_of_training_samples;
+                    covariance_matrix[j, i] = covariance_matrix[j, i] / num_of_training_samples;
                 }
             }
             /**
              * Use MathDotNET Numerics
              **/
             Matrix_Sigma = Matrix<double>.Build.DenseOfArray(covariance_matrix);
+            double x = Matrix_Sigma[0, 1];
             Matrix_Sigma_Transpose = Matrix_Sigma.Transpose();
             Matrix_Sigma_Inverse = Matrix_Sigma.Inverse();
 
